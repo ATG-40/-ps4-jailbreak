@@ -1,1 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>ATG PS4 Toolkit</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(circle at top, #25200f 0%, #0b0b0f 40%, #050507 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+            background: rgba(18, 18, 23, 0.96);
+            border: 1px solid #3a3424;
+            border-radius: 22px;
+            padding: 28px 22px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.7),
+                0 0 35px rgba(190, 150, 50, 0.08);
+        }
+
+        /* LOGO */
+
+        .logo {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .logo img {
+            width: 210px;
+            max-width: 75%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        /* TITLE */
+
+        h1 {
+            text-align: center;
+            font-size: 29px;
+            letter-spacing: 3px;
+            margin-bottom: 7px;
+            color: #d6ad55;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        /* MAIN BOX */
+
+        .box {
+            background: #0d0d12;
+            border: 1px solid #302b20;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #c7c7c7;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            background: #19191f;
+            color: white;
+            border: 1px solid #454035;
+            border-radius: 11px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: #c49b43;
+            box-shadow: 0 0 10px rgba(196, 155, 67, 0.15);
+        }
+
+        /* INFO */
+
+        .info {
+            margin-top: 18px;
+            padding: 17px;
+            border-radius: 11px;
+            background: #17171d;
+            border: 1px solid #29261f;
+            text-align: center;
+        }
+
+        .firmware {
+            font-size: 27px;
+            font-weight: bold;
+            color: #d6ad55;
+            margin-bottom: 7px;
+        }
+
+        .status {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px;
+            border-radius: 11px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .start {
+            background: #d6ad55;
+            color: #090909;
+            border: 1px solid #d6ad55;
+        }
+
+        .reset {
+            background: #292932;
+            color: white;
+            border: 1px solid #3b3b45;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin-top: 22px;
+        }
+
+        .footer strong {
+            color: #9b7b39;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 420px) {
+
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                padding: 23px 16px;
+            }
+
+            .logo img {
+                width: 180px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ATG LOGO -->
+
+    <div class="logo">
+        <img src="./logo.png" alt="Ain Touila Gamers">
+    </div>
+
+    <!-- TITLE -->
+
+    <h1>PS4 TOOLKIT</h1>
+
+    <div class="subtitle">
+        Firmware Toolkit • 9.00 → 13.52
+    </div>
+
+    <!-- FIRMWARE -->
+
+    <div class="box">
+
+        <label for="firmware">
+            Select your PS4 firmware
+        </label>
+
+        <select id="firmware">
+
+            <option value="">
+                -- Select Firmware --
+            </option>
+
+            <option value="9.00">9.00</option>
+            <option value="9.03">9.03</option>
+            <option value="9.04">9.04</option>
+            <option value="9.50">9.50</option>
+            <option value="9.51">9.51</option>
+            <option value="9.60">9.60</option>
+            <option value="10.00">10.00</option>
+            <option value="10.01">10.01</option>
+            <option value="10.50">10.50</option>
+            <option value="10.70">10.70</option>
+            <option value="10.71">10.71</option>
+            <option value="11.00">11.00</option>
+            <option value="11.02">11.02</option>
+            <option value="11.50">11.50</option>
+            <option value="11.52">11.52</option>
+            <option value="12.00">12.00</option>
+            <option value="12.02">12.02</option>
+            <option value="13.00">13.00</option>
+            <option value="13.02">13.02</option>
+            <option value="13.50">13.50</option>
+            <option value="13.52">13.52</option>
+
+        </select>
+
+        <!-- SELECTED FIRMWARE -->
+
+        <div class="info">
+
+            <div class="firmware" id="selectedFirmware">
+                —
+            </div>
+
+            <div class="status" id="status">
+                Please select your firmware
+            </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <button
+                class="start"
+                onclick="startToolkit()">
+                START
+            </button>
+
+            <button
+                class="reset"
+                onclick="resetFirmware()">
+                RESET
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        <strong>AIN TOUILA GAMERS</strong><br>
+        PS4 Toolkit • Frontend Interface
+    </div>
+
+</div>
+
+
+<script>
+
+    const firmwareSelect =
+        document.getElementById("firmware");
+
+    const selectedFirmware =
+        document.getElementById("selectedFirmware");
+
+    const status =
+        document.getElementById("status");
+
+
+    /* FIRMWARE SELECTION */
+
+    firmwareSelect.addEventListener(
+        "change",
+        function () {
+
+            if (this.value === "") {
+
+                selectedFirmware.textContent = "—";
+
+                status.textContent =
+                    "Please select your firmware";
+
+            } else {
+
+                selectedFirmware.textContent =
+                    "FW " + this.value;
+
+                status.textContent =
+                    "Firmware selected successfully";
+            }
+
+        }
+    );
+
+
+    /* START */
+
+    function startToolkit() {
+
+        if (firmwareSelect.value === "") {
+
+            alert(
+                "Please select your PS4 firmware first."
+            );
+
+            return;
+        }
+
+        alert(
+            "Selected firmware: " +
+            firmwareSelect.value +
+            "\n\nToolkit interface is ready."
+        );
+    }
+
+
+    /* RESET */
+
+    function resetFirmware() {
+
+        firmwareSelect.value = "";
+
+        selectedFirmware.textContent = "—";
+
+        status.textContent =
+            "Please select your firmware";
+    }
+
+</script>
+
+</body>
+</html>
