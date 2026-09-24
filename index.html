@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280, initial-scale=1.0"> <!-- عرض حاسوب عريض متناسق مع شاشات التلفاز -->
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
 
     <title>ATG PS4 Toolkit - Desktop Edition</title>
 
@@ -43,6 +43,10 @@
             justify-content: space-between;
             border-bottom: 1px solid #29251c;
             padding-bottom: 25px;
+        }
+
+        .brand-meta {
+            text-align: left;
         }
 
         h1 {
@@ -232,7 +236,7 @@
     const loader = document.getElementById("loader");
     const startBtn = document.getElementById("startBtn");
 
-    let p4Version = "11.00"; 
+    let p4Version = "12.02"; // الإصدار الافتراضي لجهازك
 
     function detectPS4Firmware() {
         const ua = navigator.userAgent;
@@ -245,8 +249,8 @@
             status.textContent = "PS4 Hardware detected. Ready to mount the kernel sandbox environment.";
             status.style.color = "#34c759";
         } else {
-            detectedFW.textContent = "STATION: PC MODE";
-            status.textContent = "Environment simulation enabled. Default target set to FW 11.00.";
+            detectedFW.textContent = "STATION: PS4 MODE";
+            status.textContent = "Target firmware locked to " + p4Version + ".";
             status.style.color = "#888";
         }
     }
@@ -262,9 +266,9 @@
         status.textContent = "[STATION] Allocating virtual WebKit memory pages...";
 
         setTimeout(() => {
-            status.textContent = "[STATION] Redirection sequence engaged. Running local exploit engine...";
-            // التوجيه المباشر لتشغيل ملف الثغرة الفعلي jb.html المرفوع في حسابك
-            window.location.href = "./jb.html";
+            status.textContent = "[STATION] Running local exploit engine for FW " + p4Version + "...";
+            // التوجيه الذكي المباشر لملفات الثغرة السحابية لتخطي الشاشة السوداء تماماً
+            window.location.href = "https://github.io" + p4Version + "/index.html";
         }, 1500);
     }
 </script>
