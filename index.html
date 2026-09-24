@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280, initial-scale=1.0"> <!-- إجبار المتصفح على قراءة الصفحة كعرض حاسوب -->
+    <meta name="viewport" content="width=1280, initial-scale=1.0"> <!-- عرض حاسوب عريض متناسق مع شاشات التلفاز -->
 
     <title>ATG PS4 Toolkit - Desktop Edition</title>
 
@@ -22,35 +22,27 @@
             justify-content: center;
             align-items: center;
             padding: 40px;
-            overflow-x: auto; /* السماح بالتمرير الأفقي إذا كانت الشاشة أصغر من الواجهة */
+            overflow-x: auto;
         }
 
-        /* CONTAINER DESIGNED FOR DESKTOP MONITORS */
         .container {
-            width: 1000px; /* عرض عريض مخصص للحواسب */
+            width: 1000px;
             background: rgba(14, 14, 19, 0.98);
             border: 1px solid #4a412d;
             border-radius: 16px;
             padding: 40px;
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.8),
-                0 0 50px rgba(214, 173, 85, 0.05);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(214, 173, 85, 0.05);
             display: flex;
             flex-direction: column;
             gap: 30px;
         }
 
-        /* HEADER SECTION (HORIZONTAL LAYOUT) */
         .header-panel {
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #29251c;
             padding-bottom: 25px;
-        }
-
-        .brand-meta {
-            text-align: left;
         }
 
         h1 {
@@ -75,13 +67,11 @@
             border: 1px solid #3a3424;
         }
 
-        /* MAIN MONITORING DASHBOARD */
         .dashboard-grid {
             display: flex;
             gap: 25px;
         }
 
-        /* LEFT SIDE: SYSTEM MONITOR */
         .monitor-panel {
             flex: 1.2;
             background: #08080c;
@@ -112,7 +102,6 @@
             max-width: 90%;
         }
 
-        /* RIGHT SIDE: CONTROL PANEL */
         .control-panel {
             flex: 0.8;
             background: #111116;
@@ -133,7 +122,6 @@
             font-weight: bold;
         }
 
-        /* EXPLOIT ACTION BUTTON */
         .start-btn {
             width: 100%;
             padding: 22px;
@@ -164,7 +152,6 @@
             border: 1px solid #2a2a30;
         }
 
-        /* ANIMATED LOADER */
         .loader {
             display: none;
             margin-bottom: 15px;
@@ -181,7 +168,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* DESKTOP FOOTER */
         .footer-panel {
             display: flex;
             justify-content: space-between;
@@ -234,7 +220,7 @@
 
     <!-- FOOTER PANEL -->
     <div class="footer-panel">
-        <div>System Engine: <strong>AUTOMATIC FIRMWARE INJECTION (UP TO 13.52)</strong></div>
+        <div>System Engine: <strong>AUTOMATIC FIRMWARE INJECTION (LOCAL WEBHOST)</strong></div>
         <div>&copy; 2026 <strong>AIN TOUILA GAMERS</strong></div>
     </div>
 
@@ -246,7 +232,7 @@
     const loader = document.getElementById("loader");
     const startBtn = document.getElementById("startBtn");
 
-    let p4Version = "11.00"; // القيمة الافتراضية للكمبيوتر
+    let p4Version = "11.00"; 
 
     function detectPS4Firmware() {
         const ua = navigator.userAgent;
@@ -265,7 +251,6 @@
         }
     }
 
-    // تشغيل فحص النظام عند التحميل
     window.onload = detectPS4Firmware;
 
     function launchExploit() {
@@ -274,16 +259,13 @@
         detectedFW.style.display = "none";
         status.style.color = "#d6ad55";
 
-        status.textContent = "[STATION] Allocating virtual WebKit memory pages for FW " + p4Version + "...";
+        status.textContent = "[STATION] Allocating virtual WebKit memory pages...";
 
         setTimeout(() => {
-            status.textContent = "[STATION] Sending payload array vectors to target kernel...";
-        }, 1800);
-
-        setTimeout(() => {
-            status.textContent = "[STATION] Redirection sequence engaged. Mapping host pipeline...";
-            window.location.href = "https://github.io" + p4Version + "/index.html";
-        }, 3200);
+            status.textContent = "[STATION] Redirection sequence engaged. Running local exploit engine...";
+            // التوجيه المباشر لتشغيل ملف الثغرة الفعلي jb.html المرفوع في حسابك
+            window.location.href = "./jb.html";
+        }, 1500);
     }
 </script>
 
