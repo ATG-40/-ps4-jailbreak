@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280, initial-scale=1.0"> <!-- إجبار المتصفح على قراءة الصفحة كعرض حاسوب -->
 
-    <title>ATG PS4 Toolkit</title>
+    <title>ATG PS4 Toolkit - Desktop Edition</title>
 
     <style>
         * {
@@ -14,191 +14,187 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background:
-                radial-gradient(circle at top, #25200f 0%, #0b0b0f 40%, #050507 100%);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at top, #2c2512 0%, #0d0d14 50%, #050508 100%);
             color: white;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px;
+            overflow-x: auto; /* السماح بالتمرير الأفقي إذا كانت الشاشة أصغر من الواجهة */
         }
 
+        /* CONTAINER DESIGNED FOR DESKTOP MONITORS */
         .container {
-            width: 100%;
-            max-width: 520px;
-            background: rgba(18, 18, 23, 0.96);
-            border: 1px solid #3a3424;
-            border-radius: 22px;
-            padding: 28px 22px;
+            width: 1000px; /* عرض عريض مخصص للحواسب */
+            background: rgba(14, 14, 19, 0.98);
+            border: 1px solid #4a412d;
+            border-radius: 16px;
+            padding: 40px;
             box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.7),
-                0 0 35px rgba(190, 150, 50, 0.08);
+                0 30px 80px rgba(0, 0, 0, 0.8),
+                0 0 50px rgba(214, 173, 85, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        /* LOGO */
-
-        .logo {
-            text-align: center;
-            margin-bottom: 18px;
+        /* HEADER SECTION (HORIZONTAL LAYOUT) */
+        .header-panel {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #29251c;
+            padding-bottom: 25px;
         }
 
-        .logo img {
-            width: 210px;
-            max-width: 75%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 10px;
+        .brand-meta {
+            text-align: left;
         }
-
-        /* TITLE */
 
         h1 {
-            text-align: center;
-            font-size: 29px;
-            letter-spacing: 3px;
-            margin-bottom: 7px;
+            font-size: 36px;
+            letter-spacing: 4px;
             color: #d6ad55;
+            font-weight: 800;
         }
 
         .subtitle {
-            text-align: center;
-            color: #999;
+            color: #888;
             font-size: 14px;
-            margin-bottom: 28px;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* MAIN BOX */
-
-        .box {
-            background: #0d0d12;
-            border: 1px solid #302b20;
-            border-radius: 15px;
-            padding: 20px;
+        .logo img {
+            width: 180px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #3a3424;
         }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 15px;
-            color: #c7c7c7;
+        /* MAIN MONITORING DASHBOARD */
+        .dashboard-grid {
+            display: flex;
+            gap: 25px;
         }
 
-        select {
-            width: 100%;
-            padding: 15px;
-            background: #19191f;
-            color: white;
-            border: 1px solid #454035;
-            border-radius: 11px;
-            font-size: 16px;
-            outline: none;
-        }
-
-        select:focus {
-            border-color: #c49b43;
-            box-shadow: 0 0 10px rgba(196, 155, 67, 0.15);
-        }
-
-        /* INFO */
-
-        .info {
-            margin-top: 18px;
-            padding: 17px;
-            border-radius: 11px;
-            background: #17171d;
-            border: 1px solid #29261f;
-            text-align: center;
+        /* LEFT SIDE: SYSTEM MONITOR */
+        .monitor-panel {
+            flex: 1.2;
+            background: #08080c;
+            border: 1px solid #221f18;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 220px;
         }
 
         .firmware {
-            font-size: 27px;
+            font-size: 42px;
             font-weight: bold;
             color: #d6ad55;
-            margin-bottom: 7px;
+            font-family: monospace;
+            text-shadow: 0 0 20px rgba(214, 173, 85, 0.2);
+            margin-bottom: 15px;
         }
 
         .status {
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* BUTTONS */
-
-        .buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        button {
-            flex: 1;
-            padding: 15px;
-            border-radius: 11px;
+            color: #aaa;
             font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-
-        .start {
-            background: #d6ad55;
-            color: #090909;
-            border: 1px solid #d6ad55;
-        }
-
-        .reset {
-            background: #292932;
-            color: white;
-            border: 1px solid #3b3b45;
-        }
-
-        button:active {
-            transform: scale(0.97);
-        }
-
-        /* FOOTER */
-
-        .footer {
+            line-height: 1.6;
             text-align: center;
-            color: #666;
-            font-size: 12px;
-            margin-top: 22px;
+            max-width: 90%;
         }
 
-        .footer strong {
-            color: #9b7b39;
+        /* RIGHT SIDE: CONTROL PANEL */
+        .control-panel {
+            flex: 0.8;
+            background: #111116;
+            border: 1px solid #29251c;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* MOBILE */
+        .panel-title {
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
 
-        @media (max-width: 420px) {
+        /* EXPLOIT ACTION BUTTON */
+        .start-btn {
+            width: 100%;
+            padding: 22px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: linear-gradient(135deg, #d6ad55 0%, #b8933f 100%);
+            color: #050505;
+            border: none;
+            box-shadow: 0 6px 20px rgba(214, 173, 85, 0.2);
+            text-transform: uppercase;
+        }
 
-            body {
-                padding: 12px;
-            }
+        .start-btn:not(:disabled):hover {
+            background: linear-gradient(135deg, #e5be6b 0%, #c9a34b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(214, 173, 85, 0.35);
+        }
 
-            .container {
-                padding: 23px 16px;
-            }
+        .start-btn:disabled {
+            background: #1f1f24 !important;
+            color: #444 !important;
+            box-shadow: none;
+            cursor: not-allowed;
+            border: 1px solid #2a2a30;
+        }
 
-            .logo img {
-                width: 180px;
-            }
+        /* ANIMATED LOADER */
+        .loader {
+            display: none;
+            margin-bottom: 15px;
+            border: 4px solid #13131a;
+            border-top: 4px solid #d6ad55;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
 
-            h1 {
-                font-size: 25px;
-            }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-            .buttons {
-                flex-direction: column;
-            }
+        /* DESKTOP FOOTER */
+        .footer-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #29251c;
+            padding-top: 20px;
+            color: #555;
+            font-size: 13px;
+        }
 
-            button {
-                width: 100%;
-            }
+        .footer-panel strong {
+            color: #8c7035;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -207,173 +203,88 @@
 
 <div class="container">
 
-    <!-- ATG LOGO -->
-
-    <div class="logo">
-        <img src="./logo.png" alt="Ain Touila Gamers">
+    <!-- HEADER PANEL -->
+    <div class="header-panel">
+        <div class="brand-meta">
+            <h1>PS4 TOOLKIT</h1>
+            <div class="subtitle">Universal Intelligent Exploit Host • Desktop Station</div>
+        </div>
+        <div class="logo">
+            <img src="./logo.png" alt="Ain Touila Gamers">
+        </div>
     </div>
 
-    <!-- TITLE -->
-
-    <h1>PS4 TOOLKIT</h1>
-
-    <div class="subtitle">
-        Firmware Toolkit • 9.00 → 13.52
-    </div>
-
-    <!-- FIRMWARE -->
-
-    <div class="box">
-
-        <label for="firmware">
-            Select your PS4 firmware
-        </label>
-
-        <select id="firmware">
-
-            <option value="">
-                -- Select Firmware --
-            </option>
-
-            <option value="9.00">9.00</option>
-            <option value="9.03">9.03</option>
-            <option value="9.04">9.04</option>
-            <option value="9.50">9.50</option>
-            <option value="9.51">9.51</option>
-            <option value="9.60">9.60</option>
-            <option value="10.00">10.00</option>
-            <option value="10.01">10.01</option>
-            <option value="10.50">10.50</option>
-            <option value="10.70">10.70</option>
-            <option value="10.71">10.71</option>
-            <option value="11.00">11.00</option>
-            <option value="11.02">11.02</option>
-            <option value="11.50">11.50</option>
-            <option value="11.52">11.52</option>
-            <option value="12.00">12.00</option>
-            <option value="12.02">12.02</option>
-            <option value="13.00">13.00</option>
-            <option value="13.02">13.02</option>
-            <option value="13.50">13.50</option>
-            <option value="13.52">13.52</option>
-
-        </select>
-
-        <!-- SELECTED FIRMWARE -->
-
-        <div class="info">
-
-            <div class="firmware" id="selectedFirmware">
-                —
-            </div>
-
-            <div class="status" id="status">
-                Please select your firmware
-            </div>
-
+    <!-- MAIN DASHBOARD -->
+    <div class="dashboard-grid">
+        
+        <!-- LEFT: MONITOR -->
+        <div class="monitor-panel">
+            <div class="loader" id="loader"></div>
+            <div class="firmware" id="detectedFW">DETECTING...</div>
+            <div class="status" id="status">Reading hardware environment data via User-Agent string...</div>
         </div>
 
-        <!-- BUTTONS -->
-
-        <div class="buttons">
-
-            <button
-                class="start"
-                onclick="startToolkit()">
-                START
-            </button>
-
-            <button
-                class="reset"
-                onclick="resetFirmware()">
-                RESET
-            </button>
-
+        <!-- RIGHT: OPERATIONS -->
+        <div class="control-panel">
+            <div class="panel-title">Execution Console</div>
+            <button class="start-btn" id="startBtn" onclick="launchExploit()">Execute Host</button>
         </div>
 
     </div>
 
-    <!-- FOOTER -->
-
-    <div class="footer">
-        <strong>AIN TOUILA GAMERS</strong><br>
-        PS4 Toolkit • Frontend Interface
+    <!-- FOOTER PANEL -->
+    <div class="footer-panel">
+        <div>System Engine: <strong>AUTOMATIC FIRMWARE INJECTION (UP TO 13.52)</strong></div>
+        <div>&copy; 2026 <strong>AIN TOUILA GAMERS</strong></div>
     </div>
 
 </div>
 
-
 <script>
+    const detectedFW = document.getElementById("detectedFW");
+    const status = document.getElementById("status");
+    const loader = document.getElementById("loader");
+    const startBtn = document.getElementById("startBtn");
 
-    const firmwareSelect =
-        document.getElementById("firmware");
+    let p4Version = "11.00"; // القيمة الافتراضية للكمبيوتر
 
-    const selectedFirmware =
-        document.getElementById("selectedFirmware");
-
-    const status =
-        document.getElementById("status");
-
-
-    /* FIRMWARE SELECTION */
-
-    firmwareSelect.addEventListener(
-        "change",
-        function () {
-
-            if (this.value === "") {
-
-                selectedFirmware.textContent = "—";
-
-                status.textContent =
-                    "Please select your firmware";
-
-            } else {
-
-                selectedFirmware.textContent =
-                    "FW " + this.value;
-
-                status.textContent =
-                    "Firmware selected successfully";
-            }
-
+    function detectPS4Firmware() {
+        const ua = navigator.userAgent;
+        
+        if (ua.indexOf("PlayStation 4") !== -1) {
+            let softwareVersion = ua.substring(ua.indexOf("PlayStation 4/") + 14, ua.indexOf("PlayStation 4/") + 19);
+            p4Version = softwareVersion.trim();
+            
+            detectedFW.textContent = "SYS STATUS: FW " + p4Version;
+            status.textContent = "PS4 Hardware detected. Ready to mount the kernel sandbox environment.";
+            status.style.color = "#34c759";
+        } else {
+            detectedFW.textContent = "STATION: PC MODE";
+            status.textContent = "Environment simulation enabled. Default target set to FW 11.00.";
+            status.style.color = "#888";
         }
-    );
-
-
-    /* START */
-
-    function startToolkit() {
-
-        if (firmwareSelect.value === "") {
-
-            alert(
-                "Please select your PS4 firmware first."
-            );
-
-            return;
-        }
-
-        alert(
-            "Selected firmware: " +
-            firmwareSelect.value +
-            "\n\nToolkit interface is ready."
-        );
     }
 
+    // تشغيل فحص النظام عند التحميل
+    window.onload = detectPS4Firmware;
 
-    /* RESET */
+    function launchExploit() {
+        startBtn.disabled = true;
+        loader.style.display = "block";
+        detectedFW.style.display = "none";
+        status.style.color = "#d6ad55";
 
-    function resetFirmware() {
+        status.textContent = "[STATION] Allocating virtual WebKit memory pages for FW " + p4Version + "...";
 
-        firmwareSelect.value = "";
+        setTimeout(() => {
+            status.textContent = "[STATION] Sending payload array vectors to target kernel...";
+        }, 1800);
 
-        selectedFirmware.textContent = "—";
-
-        status.textContent =
-            "Please select your firmware";
+        setTimeout(() => {
+            status.textContent = "[STATION] Redirection sequence engaged. Mapping host pipeline...";
+            window.location.href = "https://github.io" + p4Version + "/index.html";
+        }, 3200);
     }
-
 </script>
 
 </body>
